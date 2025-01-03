@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Memory Game</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .simon-game {
+        background-color: rgb(25, 25, 25);
+        border-radius: 70%;
+        position: relative;
+        width: 400px;
+        height: 400px;
+        padding: 10px;
+        border: 15px solid rgb(25, 25, 25);
+      }
+
+      .simon-button {
+        position: absolute;
+        width: 195px;
+        height: 195px;
+        cursor: pointer;
+      }
+
+      .simon-button:hover {
+        background-color: aqua;
+      }
+
+      .green {
+        background-color: green;
+        top: 0;
+        left: 0;
+        border-radius: 250px 0 0 0;
+        margin: 5px;
+      }
+
+      .red {
+        background-color: red;
+        top: 0;
+        right: 0;
+        border-radius: 0 250px 0 0;
+        margin: 5px;
+      }
+
+      .yellow {
+        background-color: yellow;
+        bottom: 0;
+        left: 0;
+        border-radius: 0 0 0 250px;
+        margin: 5px;
+      }
+
+      .blue {
+        background-color: blue;
+        bottom: 0;
+        right: 0;
+        border-radius: 0 0 250px 0;
+        margin: 5px;
+      }
+
+      .simon-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 180px;
+        height: 180px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="simon-game">
+      <div class="simon-button green"></div>
+      <div class="simon-button red"></div>
+      <div class="simon-button yellow"></div>
+      <div class="simon-button blue"></div>
+      <div class="simon-center">Simon</div>
+    </div>
+  </body>
+</html>
