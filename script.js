@@ -58,7 +58,6 @@ const mockeryText = {
 
 function game() {
   removeGlow();
-  //$(".mockery").hide();
   $(".mockery").text("");
   $(".play-button").click(function () {
     $(".play-text").hide();
