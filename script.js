@@ -163,7 +163,7 @@ function validatePress() {
     updateLevelText();
     playerSequence = [];
     disableUserInput();
-    setTimeout(nextRound, 1000);
+    setTimeout(nextRound, 500);
   }
 }
 
