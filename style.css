@@ -160,6 +160,10 @@ h1 {
 }
 
 @media (max-width: 765px) {
+  h1,
+  .mockery-bottom-one {
+    font-size: 17px;
+  }
   .simon-game {
     padding: 5px;
     border: 5px solid rgb(25, 25, 25);
