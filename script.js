@@ -4,6 +4,58 @@ const gameSequence = [];
 let playerSequence = [];
 const clickDuration = 370;
 
+const mockeryText = {
+  level1: [
+    "Wow, you made it to Level 1! Truly groundbreaking stuff.",
+    "Don't strain yourself; it's only one button!",
+    "Well done, you pressed a button. Truly elite gaming skills.",
+    "Congrats on achieving what a toddler can do on their first try!",
+  ],
+  level2To5: [
+    "Nice job! But don't get too comfortable, genius.",
+    "Congratulations, you're officially smarter than a goldfish... barely.",
+    "Level 3, huh? Big brain energy incoming... or will it fizzle out?",
+    "Hey, you might just beat a toddler at this rate! Keep dreaming.",
+    "Level 5? Don't get cocky, this isn't exactly rocket science.",
+  ],
+  level6To10: [
+    "Level 6? Oh, so you’re good at pushing buttons. Impressive career move.",
+    "Wow, Level 7! That’s one step closer to eternal mediocrity.",
+    "You’re getting far… in a game that literally a machine plays better than you.",
+    "If you were this good at real-life skills, imagine where you’d be right now.",
+    "Level 10? Congrats, you’ve peaked at something no one cares about.",
+  ],
+  level11To15: [
+    "Level 11? Is this dedication or just a lack of better hobbies?",
+    "Oh, look who’s becoming the Simon whisperer. What a legacy to leave behind.",
+    "You’re still going? I admire your stamina… and pity your priorities.",
+    "Level 15 already? At this rate, you might break the record for wasting time.",
+    "Ever think about applying this effort to something productive? Nah, me neither.",
+  ],
+  level16To20: [
+    "You’re at Level 16? Okay, now I’m starting to think you’re part robot.",
+    "Level 17, huh? Enjoy your 15 seconds of imaginary fame.",
+    "You’re getting suspiciously good at this. Do I smell a cheater?",
+    "Level 19?! Now you’re just showing off. Relax, button-masher.",
+    "Level 20? Well, at least now your obsession has a number attached to it.",
+  ],
+  level21AndAbove: [
+    "Level 21? Congratulations, you're officially better than anyone cares to be.",
+    "Wow, you're still playing? I'm starting to think this game is your soulmate.",
+    "You’ve reached a level so high, even Simon’s getting bored.",
+    "Oh, look at you, the self-proclaimed Simon Master. How prestigious.",
+    `Above Level ${gameSequence}? Great, now even the game regrets letting you in.`,
+  ],
+  mistakes: [
+    "Oooh, so close! Just kidding, you weren't even close.",
+    "I didn't think it was possible to mess up that bad. And yet, here we are.",
+    "Simon says: Try harder next time. Seriously, TRY.",
+    "Did you forget the order, or are you just pressing random buttons?",
+    "Impressive. You somehow failed at the most basic task imaginable.",
+    "Remember, it's always either Green, Red, Yellow, or Blue. Not that hard.",
+  ],
+};
+
 function game() {
   removeGlow();
   $(".mockery").text("");
@@ -131,61 +183,10 @@ function removeGlow() {
   );
 }
 
-const mockeryText = {
-  level1: [
-    "Wow, you made it to Level 1! Truly groundbreaking stuff.",
-    "Don't strain yourself; it's only one button!",
-    "Well done, you pressed a button. Truly elite gaming skills.",
-    "Congrats on achieving what a toddler can do on their first try!",
-  ],
-  level2To5: [
-    "Nice job! But don't get too comfortable, genius.",
-    "Congratulations, you're officially smarter than a goldfish... barely.",
-    "Level 3, huh? Big brain energy incoming... or will it fizzle out?",
-    "Hey, you might just beat a toddler at this rate! Keep dreaming.",
-    "Level 5? Don't get cocky, this isn't exactly rocket science.",
-  ],
-  level6To10: [
-    "Level 6? Oh, so you’re good at pushing buttons. Impressive career move.",
-    "Wow, Level 7! That’s one step closer to eternal mediocrity.",
-    "You’re getting far… in a game that literally a machine plays better than you.",
-    "If you were this good at real-life skills, imagine where you’d be right now.",
-    "Level 10? Congrats, you’ve peaked at something no one cares about.",
-  ],
-  level11To15: [
-    "Level 11? Is this dedication or just a lack of better hobbies?",
-    "Oh, look who’s becoming the Simon whisperer. What a legacy to leave behind.",
-    "You’re still going? I admire your stamina… and pity your priorities.",
-    "Level 15 already? At this rate, you might break the record for wasting time.",
-    "Ever think about applying this effort to something productive? Nah, me neither.",
-  ],
-  level16To20: [
-    "You’re at Level 16? Okay, now I’m starting to think you’re part robot.",
-    "Level 17, huh? Enjoy your 15 seconds of imaginary fame.",
-    "You’re getting suspiciously good at this. Do I smell a cheater?",
-    "Level 19?! Now you’re just showing off. Relax, button-masher.",
-    "Level 20? Well, at least now your obsession has a number attached to it.",
-  ],
-  level21AndAbove: [
-    "Level 21? Congratulations, you're officially better than anyone cares to be.",
-    "Wow, you're still playing? I'm starting to think this game is your soulmate.",
-    "You’ve reached a level so high, even Simon’s getting bored.",
-    "Oh, look at you, the self-proclaimed Simon Master. How prestigious.",
-    `Above Level ${gameSequence}? Great, now even the game regrets letting you in.`,
-  ],
-  mistakes: [
-    "Oooh, so close! Just kidding, you weren't even close.",
-    "I didn't think it was possible to mess up that bad. And yet, here we are.",
-    "Simon says: Try harder next time. Seriously, TRY.",
-    "Did you forget the order, or are you just pressing random buttons?",
-    "Impressive. You somehow failed at the most basic task imaginable.",
-    "Remember, it's always either Green, Red, Yellow, or Blue. Not that hard.",
-  ],
-};
-
 function updateMock() {
   const mock = $(".mockery");
   let text;
+  let level = gameSequence.length;
   if (level === 1) {
     text =
       mockeryText.level1[Math.floor(Math.random() * mockeryText.level1.length)];
