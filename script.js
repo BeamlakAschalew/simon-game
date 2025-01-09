@@ -63,7 +63,7 @@ function game() {
     $(".play-text").hide();
     resetGame();
     $(".score").text("000");
-    $(".play-button").hide();
+    $(isScreenLarge() ? ".play-inner-one" : ".play-bottom-one").hide();
     nextRound();
   });
 }
@@ -151,7 +151,7 @@ function validatePress() {
     setTimeout(() => {
       $("body").css("background-color", "");
     }, 100);
-    $(".play-button").show();
+    $(isScreenLarge() ? ".play-inner-one" : ".play-bottom-one").show();
     $(".play-text").show();
     playButtonAudio("fail");
     showLostMock();
@@ -184,7 +184,9 @@ function removeGlow() {
 }
 
 function updateMock() {
-  const mock = $(".mockery");
+  const mock = isScreenLarge()
+    ? $(".mockery-inner-one")
+    : $(".mockery-bottom-one");
   let text;
   let level = gameSequence.length;
   if (level === 1) {
@@ -257,10 +259,16 @@ function updateLevelText() {
 }
 
 function showLostMock() {
-  const mock = $(".mockery");
+  const mock = isScreenLarge()
+    ? $(".mockery-inner-one")
+    : $(".mockery-bottom-one");
   const text =
     mockeryText.mistakes[
       Math.floor(Math.random() * mockeryText.mistakes.length)
     ];
   mock.text(text);
+}
+
+function isScreenLarge() {
+  return window.innerWidth >= 765;
 }
